@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load humanize %}
 
 {% block content %} 
         
@@ -75,7 +76,7 @@
                             <td class=" ">{{Acctype.currencyCode}}</td>
                             <td class=" ">{{Acctype.accountStatus}}</td>
                             <td class="a-right a-right ">{{Acctype.regBy}}</td>
-                            <td class=" ">{{Acctype.regDate}}</td>
+                            <td class=" ">{{Acctype.regDate | timesince }}</td>
                             <td class=" last"><a href="{% url 'edit-account-types' Acctype.id %}">View</a></td>
                             <td class=" last"><a href="{% url 'delete-accountTypes' Acctype.id %}">Delete</a></td>
                             </td>

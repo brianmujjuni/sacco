@@ -69,6 +69,7 @@ def delete_accountType(request,id):
     messages.success(request,'Account Type Successfully Deleted')
     return redirect('account-types')
     
+
 @login_required(login_url='/authentication/login')
 def edit_accountType(request,id):
     accountTypes = Account_Types.objects.get(pk=id)
@@ -88,6 +89,26 @@ def edit_accountType(request,id):
         if not branchName:
             messages.error(request,'Please Branch Name Is Required ')
             return redirect(request,'account-types/edit-account-type.html',context)
+        if not accountType:
+            messages.error(request,'Please Account Can not be blank')
+            return redirect(request,'account-types/edit-account-type.html',context)
+        if not currencyCode:
+            messages.warning(request,'Please Currency Code Field Is Required')
+            return redirect(request,'account-types/edit-account-type.html',context)
+        if not minimumBalance:
+            messages.warning(request,'Please Minimum Account Field Is Required And Cant Be Empty')
+            return redirect(request,'account-types/edit-account-type.html',context)
+        if not accountStatus:
+            messages.error(request,'Please Select Account Status Field Can not Be Empty')
+            return redirect(request,'account-types/edit-account-type.html',context)
+        accountTypes.branchName = branchName
+        accountTypes.accountType = accountType
+        accountTypes.description =description
+        accountTypes.currencyCode = currencyCode
+        accountTypes.minimumBalance = minimumBalance
+        accountTypes.accountStatus = accountStatus
+        accountTypes.save()
+        messages.success(request,'Account Type SuccessFully Update ')
+        return redirect('account-types')
 
-    
-    
+
