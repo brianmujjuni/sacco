@@ -12,7 +12,7 @@ searchField.addEventListener("keyup",(e)=>{
 
     if(searchValue.trim().length > 0){
         tbody.innerHTML = ""
-        fetch("/accounts/search-accounts",{
+        fetch("/accounts/search_accounts",{
             body: JSON.stringify({ searchText: searchValue}),
             method: "POST",
         })
