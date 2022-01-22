@@ -7,7 +7,7 @@ urlpatterns=[
     path('add-accounts',views.add_accounts,name='add-accounts'),
     path('update-account/<str:accountNo>',views.update_accounts,name='update-account'),
     path('delete-account/<str:accountNo>', views.delete_account, name="delete-account"),
-    path('search_accounts', csrf_exempt(views.search_accounts),name="search_accounts"),
+    path('search-accounts', csrf_exempt(views.search_accounts),name="search-accounts"),
     path('accounts-excell',views.accounts_excell,name='accounts-excell'),
     path('accounts-csv',views.accounts_csv,name='accounts-csv'),
 

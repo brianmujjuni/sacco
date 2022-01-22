@@ -349,6 +349,7 @@ def search_accounts(request):
             accountNo__icontains=search_str) | Account.objects.order_by('-date1').filter(accountName__istartswith=search_str) | Account.objects.order_by('-date1').filter(
                 accountType__icontains=search_str) | Account.objects.order_by('-date1').filter(date1__icontains=search_str) | Account.objects.order_by('-date1').filter(accountStatus__icontains=search_str)
         data = accounts.values()
+        
         return JsonResponse(list(data),safe=False)
 
 @login_required(login_url='/authentication/login')

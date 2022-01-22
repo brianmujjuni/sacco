@@ -12,13 +12,13 @@ searchField.addEventListener("keyup",(e)=>{
 
     if(searchValue.trim().length > 0){
         tbody.innerHTML = ""
-        fetch("/accounts/search_accounts",{
+        fetch("/accounts/search-accounts",{
             body: JSON.stringify({ searchText: searchValue}),
             method: "POST",
         })
         .then((res)=> res.json())
         .then((data)=>{
-            console.log("data",data)
+            //console.log("data",data)
             appTable.style.display = "none"
             tableOutput.style.display = "block"
             if(data.length === 0){
@@ -41,8 +41,8 @@ searchField.addEventListener("keyup",(e)=>{
                                 <td class=" ">${item.lastName}</td>
                                 <td class="a-right a-right ">${item.accountStatus}</td>
                                 <td class=" ">${item.date1} </td>
-                                <td class=" last"><a href="${ update-account ,item.accountNo }">View</a>
-                                <td class=" last"><a href="${'delete-account' ,item.accountNo }">Delete</a>
+                                <td class=" last"><a href="${ 'update-account' ,item.accountNo }">View</a>
+                                <td class=" last"><a href="${ 'delete-account ',item.accountNo }">Delete</a>
                                 </td>
                               </tr>
                     `
