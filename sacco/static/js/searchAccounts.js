@@ -41,7 +41,7 @@ searchField.addEventListener("keyup",(e)=>{
                                 <td class=" ">${item.lastName}</td>
                                 <td class="a-right a-right ">${item.accountStatus}</td>
                                 <td class=" ">${item.date1} </td>
-                                <td class=" last"><a href="${ 'update-account' ,item.accountNo }">View</a>
+                                <td class=" last"><a href="${ 'update-account', item.accountNo }">View</a>
                                 <td class=" last"><a href="${ 'delete-account ',item.accountNo }">Delete</a>
                                 </td>
                               </tr>
