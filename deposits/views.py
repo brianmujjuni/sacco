@@ -85,8 +85,11 @@ def add_account_deposits(request):
 
 @login_required(login_url='/authentication/login')
 def delete_deposit(request,deposit_id):
+    
     deposit = Deposits.objects.get(pk=deposit_id)
+    transaction = Transaction.objects.get(pk=deposit_id)
     deposit.delete()
+    transaction.delete()
     messages.success(request,'Deposit Transaction SuccessFully Deleted')
     return redirect('deposits')
 
