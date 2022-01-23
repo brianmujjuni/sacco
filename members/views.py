@@ -58,6 +58,7 @@ def update_status(request,accountNo):
         return render(request,'members/update-status.html',context)
     if request.method == 'POST':
         accountStatus = request.POST['accountStatus']
+        balance = request.POST['balance']
 
         
         if not accountStatus:
@@ -66,11 +67,17 @@ def update_status(request,accountNo):
         if accountStatus =='Please Select Account Status':
             messages.error(request,'Please Select Account Status To Continue')
             return render(request,'members/update-status.html',context)
+        
+        if not balance:
+            messages.error(request,'Please Balance Can not Be Blank Atleast Zero Balance Is Okay')
+            return render(request,'members/update-status.html',context)
 
         members.accountStatus = accountStatus
         individualAccount.accountStatus = accountStatus
+        members.balance = balance
         members.save()
         individualAccount.save()
+
         if accountStatus =='Active':
             messages.success(request,'Account Status SuccessFully Update')
             return redirect('members')
