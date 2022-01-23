@@ -92,7 +92,7 @@
                               <td class=" ">{{transaction.regBy}} </td>
                               <td class=" ">{{transaction.transactionDate | timesince}} </td>
                               <td class=" last"><a href="">View</a>
-                              <td class=" last"><a href="">Delete</a>
+                              <td class=" last"><a href="{% url 'delete-transaction' transaction.transactionId%}">Delete</a>
                               </td>
                             </tr>
                             

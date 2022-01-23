@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from email import message
+from django.contrib import messages
+from django.shortcuts import redirect, render
 from .models import Transaction
 from django.contrib.auth.decorators import login_required
 from django.http import  JsonResponse, response,HttpResponse
@@ -16,6 +18,14 @@ def index(request):
         'transactions':transactions
     }
     return render(request,'transactions/index.html',context)
+
+@login_required(login_url='/authentication/login')
+def delete_transaction(request,transaction_id):
+    transaction = Transaction.objects.get(pk=transaction_id)
+    transaction.delete()
+    messages.success(request,'Transaction SuccessFully Deleted')
+    return redirect('transactions')
+
 
 @login_required(login_url='/authentication/login')
 def members_transactions(request):
