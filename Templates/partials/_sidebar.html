@@ -27,6 +27,13 @@
           </ul>
         </li>
 
+        <li><a><i class="fa fa-share-alt"></i>Share Acc Management<span class="fa fa-chevron-down"></span></a>
+          <ul class="nav child_menu">
+            <li><a href="{% url 'shareAccounts' %}">View Share Accounts</a></li>
+            <li><a href="#">Add Share Accounts</a></li>
+          </ul>
+        </li>
+        
         <li><a><i class="fa fa-credit-card"></i>All Members Accounts<span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
             <li><a href="{% url 'members'%}">View Active Members</a></li>
@@ -46,6 +53,16 @@
             <li><a href="{% url 'add-deposits' %}">Add Account Deposits</a></li>
           </ul>
         </li>
+
+        <li><a><i class="fa fa-sort-amount-desc"></i>Loans Management<span class="fa fa-chevron-down"></span></a>
+          <ul class="nav child_menu">
+            <li><a href="#">View Loan Request</a></li>
+            <li><a href="#">Add Loan Deposits</a></li>
+            <li><a href="#">View Loan Payments</a></li>
+            <li><a href="#">Add Loan Payments</a></li>
+          </ul>
+        </li>
+
         <li><a><i class="fa fa-random"></i>Account Charges <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
             <li><a href="{% url 'accountCharges'%}">View Account Charges </a></li>

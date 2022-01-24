@@ -31,5 +31,6 @@ urlpatterns = [
     path('currency/',include('currency.urls')),
     path('account_types/',include('account_types.urls')),
     path('accountCharges/',include('accountCharges.urls')),
+    path('shareAccount/',include('shareAccount.urls')),
     path('admin/', admin.site.urls),
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

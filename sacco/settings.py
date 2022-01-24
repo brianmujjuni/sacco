@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'transactions',
     'authentication',
     'accountCharges',
+    'shareAccount',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
