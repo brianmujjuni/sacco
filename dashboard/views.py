@@ -21,6 +21,9 @@ def index(request):
     pendingCount = pendingAccounts.count()
     account_count = accounts.count()
 
+    accountFees = Account.objects.filter(date1__date = todays_date)
+    accountFeescOUNT = accountFees.aggregate(Sum('openingFees'))
+
     dormantAccounts = Members.objects.filter(accountStatus = 'Dormant')[:5]
     dormantCount  = dormantAccounts.count()
 
@@ -50,9 +53,10 @@ def index(request):
         'totalunit': totalunit['depositAmount__sum'],
         'pendingCount': pendingCount,
         'account_count':account_count,
+        'accountFeescOUNT': accountFeescOUNT['openingFees__sum'],
         'withdraw_count': withdraw_count['withdrawAmount__sum'],
         'deposits_count': deposits_count['depositAmount__sum'],
         'accountBalance_count': accountBalance_count['balance__sum'],
-         'totalrevenueCount': totalrevenueCount['chargeAmount__sum']
+        'totalrevenueCount': totalrevenueCount['chargeAmount__sum']
     }
     return render(request,'dashboard/index.html',context)
