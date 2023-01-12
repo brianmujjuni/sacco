@@ -93,8 +93,8 @@ WSGI_APPLICATION = 'sacco.wsgi.application'
 DATABASES = {
    'default': {
        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'sacco_db',
-       'USER': 'postgres',
+        'NAME': 'zukuka',
+       'USER': 'brian',
        'PASSWORD': '12345',
        'HOST': 'localhost',
         
